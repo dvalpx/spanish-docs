@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Eventos | Documentación de Laravel en Español</title>
+    <meta name="description" content="Documentación de Laravel en Español">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:300,700|Miriam+Libre">
+    
+    <link rel="preload" href="/assets/css/0.styles.172acefb.css" as="style"><link rel="preload" href="/assets/js/app.670d7e7c.js" as="script"><link rel="preload" href="/assets/js/36.4e90af03.js" as="script"><link rel="prefetch" href="/assets/js/10.890657ad.js"><link rel="prefetch" href="/assets/js/11.886ca6a1.js"><link rel="prefetch" href="/assets/js/12.0d2fa60e.js"><link rel="prefetch" href="/assets/js/13.9645d1cc.js"><link rel="prefetch" href="/assets/js/14.b601f515.js"><link rel="prefetch" href="/assets/js/15.8a736f30.js"><link rel="prefetch" href="/assets/js/16.4ecd6c92.js"><link rel="prefetch" href="/assets/js/17.0f287924.js"><link rel="prefetch" href="/assets/js/18.a3ca4e9a.js"><link rel="prefetch" href="/assets/js/19.e237c464.js"><link rel="prefetch" href="/assets/js/2.e950dd9a.js"><link rel="prefetch" href="/assets/js/20.6c81b2f5.js"><link rel="prefetch" href="/assets/js/21.ab56b213.js"><link rel="prefetch" href="/assets/js/22.5db63cfd.js"><link rel="prefetch" href="/assets/js/23.6d6d19fa.js"><link rel="prefetch" href="/assets/js/24.771ff8be.js"><link rel="prefetch" href="/assets/js/25.61bfdf54.js"><link rel="prefetch" href="/assets/js/26.049ed12f.js"><link rel="prefetch" href="/assets/js/27.d2927876.js"><link rel="prefetch" href="/assets/js/28.ea6eee97.js"><link rel="prefetch" href="/assets/js/29.1b8672f3.js"><link rel="prefetch" href="/assets/js/3.d15edf81.js"><link rel="prefetch" href="/assets/js/30.378a4977.js"><link rel="prefetch" href="/assets/js/31.8e5176cc.js"><link rel="prefetch" href="/assets/js/32.8fdeb297.js"><link rel="prefetch" href="/assets/js/33.b615bcb8.js"><link rel="prefetch" href="/assets/js/34.3b36c043.js"><link rel="prefetch" href="/assets/js/35.ef8dd300.js"><link rel="prefetch" href="/assets/js/37.6131dd1b.js"><link rel="prefetch" href="/assets/js/38.b4345420.js"><link rel="prefetch" href="/assets/js/39.c4e3c17b.js"><link rel="prefetch" href="/assets/js/4.333c2311.js"><link rel="prefetch" href="/assets/js/40.f780e123.js"><link rel="prefetch" href="/assets/js/41.4a1a10ae.js"><link rel="prefetch" href="/assets/js/42.8969bd07.js"><link rel="prefetch" href="/assets/js/43.557e2bb4.js"><link rel="prefetch" href="/assets/js/44.5151c083.js"><link rel="prefetch" href="/assets/js/45.e944dba1.js"><link rel="prefetch" href="/assets/js/46.9a35689c.js"><link rel="prefetch" href="/assets/js/47.228f7fa9.js"><link rel="prefetch" href="/assets/js/48.47aaf80a.js"><link rel="prefetch" href="/assets/js/49.94e9af6a.js"><link rel="prefetch" href="/assets/js/5.dfd255c8.js"><link rel="prefetch" href="/assets/js/50.62d3bcc7.js"><link rel="prefetch" href="/assets/js/51.44dc5c59.js"><link rel="prefetch" href="/assets/js/52.259aa4a1.js"><link rel="prefetch" href="/assets/js/53.5f5cc6de.js"><link rel="prefetch" href="/assets/js/54.aecf28b6.js"><link rel="prefetch" href="/assets/js/55.9eb54728.js"><link rel="prefetch" href="/assets/js/56.59d4faa4.js"><link rel="prefetch" href="/assets/js/57.b8edd47a.js"><link rel="prefetch" href="/assets/js/58.0b43b12f.js"><link rel="prefetch" href="/assets/js/59.9a35b2b7.js"><link rel="prefetch" href="/assets/js/6.08b745f4.js"><link rel="prefetch" href="/assets/js/60.7d49176e.js"><link rel="prefetch" href="/assets/js/61.147bff06.js"><link rel="prefetch" href="/assets/js/62.3440b436.js"><link rel="prefetch" href="/assets/js/63.02a68d7e.js"><link rel="prefetch" href="/assets/js/64.039a514c.js"><link rel="prefetch" href="/assets/js/65.b4001712.js"><link rel="prefetch" href="/assets/js/66.18b0a11f.js"><link rel="prefetch" href="/assets/js/67.f84e9d1d.js"><link rel="prefetch" href="/assets/js/68.3d907f1f.js"><link rel="prefetch" href="/assets/js/69.503b03bf.js"><link rel="prefetch" href="/assets/js/7.4f2afe0c.js"><link rel="prefetch" href="/assets/js/70.3fb14c22.js"><link rel="prefetch" href="/assets/js/71.2a8bb910.js"><link rel="prefetch" href="/assets/js/72.325984f7.js"><link rel="prefetch" href="/assets/js/73.1b173d90.js"><link rel="prefetch" href="/assets/js/74.6ab9d1bd.js"><link rel="prefetch" href="/assets/js/75.81c87089.js"><link rel="prefetch" href="/assets/js/76.4c6ad92e.js"><link rel="prefetch" href="/assets/js/77.ca20fa7b.js"><link rel="prefetch" href="/assets/js/78.cb6a269d.js"><link rel="prefetch" href="/assets/js/79.529c080d.js"><link rel="prefetch" href="/assets/js/8.23b9f04b.js"><link rel="prefetch" href="/assets/js/80.1001e373.js"><link rel="prefetch" href="/assets/js/81.98ee983b.js"><link rel="prefetch" href="/assets/js/9.288ef444.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.172acefb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Documentación de Laravel en Español</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Inicio</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Inicio</a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>Primeros Pasos</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Conceptos De Arquitectura</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Fundamentos</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Frontend</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Seguridad</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Profundizando</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/artisan.html" class="sidebar-link">Consola Artisan</a></li><li><a href="/broadcasting.html" class="sidebar-link">Broadcasting</a></li><li><a href="/cache.html" class="sidebar-link">Caché</a></li><li><a href="/collections.html" class="sidebar-link">Collecciones</a></li><li><a href="/events.html" class="active sidebar-link">Eventos</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/events.html#introduccion" class="sidebar-link">Introducción</a></li><li class="sidebar-sub-header"><a href="/events.html#registro-de-eventos-y-oyentes" class="sidebar-link">Registro de Eventos y Oyentes</a></li><li class="sidebar-sub-header"><a href="/events.html#definiendo-eventos" class="sidebar-link">Definiendo Eventos</a></li><li class="sidebar-sub-header"><a href="/events.html#definiendo-oyentes" class="sidebar-link">Definiendo Oyentes</a></li><li class="sidebar-sub-header"><a href="/events.html#oyentes-de-eventos-de-cola" class="sidebar-link">Oyentes de Eventos de Cola</a></li><li class="sidebar-sub-header"><a href="/events.html#despachando-eventos" class="sidebar-link">Despachando Eventos</a></li><li class="sidebar-sub-header"><a href="/events.html#suscriptores-de-eventos" class="sidebar-link">Suscriptores de Eventos</a></li></ul></li><li><a href="/filesystem.html" class="sidebar-link">Almacenamiento De Archivos</a></li><li><a href="/helpers.html" class="sidebar-link">Helpers</a></li><li><a href="/mail.html" class="sidebar-link">Correos Electrónicos</a></li><li><a href="/notifications.html" class="sidebar-link">Notificaciones</a></li><li><a href="/packages.html" class="sidebar-link">Desarrollo de Paquetes</a></li><li><a href="/queues.html" class="sidebar-link">Colas De Trabajo</a></li><li><a href="/scheduling.html" class="sidebar-link">Programación de tareas</a></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Bases De Datos</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>ORM Eloquent</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Pruebas</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Paquetes oficiales</span> <span class="arrow right"></span></p> <!----></div></li></ul> </div> <div class="page"> <div class="content"><div><h1 id="eventos"><a class="header-anchor" href="#eventos" aria-hidden="true">#</a> Eventos</h1> <ul><li><a href="#introduction">Introducción</a></li> <li><a href="#registering-events-and-listeners">Registro de Eventos y Oyentes</a> <ul><li><a href="#generating-events-and-listeners">Generación de Eventos y Oyentes</a></li> <li><a href="#manually-registering-events">Registro Manual de Eventos</a></li> <li><a href="#event-discovery">Descubrimiento de Eventos</a></li></ul></li> <li><a href="#defining-events">Definiendo Eventos</a></li> <li><a href="#defining-listeners">Definiendo Oyentes</a></li> <li><a href="#queued-event-listeners">Oyentes de Eventos en Cola</a> <ul><li><a href="#manually-accessing-the-queue">Accediendo Manualmente a la Cola</a></li> <li><a href="#handling-failed-jobs">Manejo de Trabajos Fallidos</a></li></ul></li> <li><a href="#dispatching-events">Despachando Eventos</a></li> <li><a href="#event-subscribers">Suscriptores de Eventos</a> <ul><li><a href="#writing-event-subscribers">Escribiendo Suscriptores de Eventos</a></li> <li><a href="#registering-event-subscribers">Registrando Suscriptores de Eventos</a></li></ul></li></ul> <p><a name="introduction"></a></p> <h2 id="introduccion"><a class="header-anchor" href="#introduccion" aria-hidden="true">#</a> Introducción</h2> <p>Los eventos de Laravel proporcionan una implementación de observador simple, lo que permite suscribirse y escuchar diversos eventos que ocurren en tu aplicación. Las clases de eventos normalmente se almacenan en el directorio <code>app/Events</code>, mientras que tus oyentes se almacenan en <code>app/Listeners</code>. No te preocupes si no ves estos directorios en tu aplicación, ya que se crearán para ti cuando generes eventos y oyentes utilizando los comandos de consola Artisan.</p> <p>Los eventos sirven como una excelente manera de desacoplar varios aspectos de tu aplicación, ya que un solo evento puede tener múltiples oyentes que no dependen entre sí. Por ejemplo, es posible que desees enviar una notificación de Slack a tu usuario cada vez que se envíe un pedido. En lugar de acoplar tu código de procesamiento de pedidos a tu código de notificación Slack, puedes generar un evento <code>OrderShipped</code>, que un oyente puede recibir y transformar en una notificación Slack.</p> <p><a name="registering-events-and-listeners"></a></p> <h2 id="registro-de-eventos-y-oyentes"><a class="header-anchor" href="#registro-de-eventos-y-oyentes" aria-hidden="true">#</a> Registro de Eventos y Oyentes</h2> <p>El <code>EventServiceProvider</code> incluido en tu aplicación Laravel proporciona un lugar conveniente para registrar todos los oyentes de eventos de tu aplicación. La propiedad <code>listen</code> contiene un arreglo de todos los eventos (claves) y sus oyentes (valores). Puedes agregar tantos eventos a este arreglo como lo requieras tu aplicación. Por ejemplo, agreguemos un evento <code>OrderShipped</code>:</p> <div class="language-php extra-class"><pre v-pre class="language-php"><code><span class="token comment">/**
+* The event listener mappings for the application.
+*
+* @var array
+*/</span>
+<span class="token keyword">protected</span> <span class="token variable">$listen</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'App\Events\OrderShipped'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\SendShipmentNotification'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div><p><a name="generating-events-and-listeners"></a></p> <h3 id="generacion-de-eventos-y-oyentes"><a class="header-anchor" href="#generacion-de-eventos-y-oyentes" aria-hidden="true">#</a> Generación de Eventos y Oyentes</h3> <p>Por supuesto, crear manualmente los archivos para cada evento y oyente es engorroso. En vez de eso, agrega oyentes y eventos a tu <code>EventServiceProvider</code> y usa el comando <code>event:generate</code>. Este comando generará cualquier evento u oyente que esté listado en tu <code>EventServiceProvider</code>. Los eventos y oyentes que ya existen quedarán intactos:</p> <div class="language-php extra-class"><pre v-pre class="language-php"><code>php artisan event<span class="token punctuation">:</span>generate
+</code></pre></div><p><a name="manually-registering-events"></a></p> <h3 id="registro-manual-de-eventos"><a class="header-anchor" href="#registro-manual-de-eventos" aria-hidden="true">#</a> Registro Manual de Eventos</h3> <p>Normalmente, los eventos deberían registrarse a través del arreglo <code>$listen</code> de <code>EventServiceProvider</code>; sin embargo, también puedes registrar manualmente eventos basados en Closure en el método <code>boot</code> de tu <code>EventServiceProvider</code>:</p> <div class="language-php extra-class"><pre v-pre class="language-php"><code><span class="token comment">/**
+* Register any other events for your application.
+*
+* @return void
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">parent</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">boot</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Event<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'event.name'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$foo</span><span class="token punctuation">,</span> <span class="token variable">$bar</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="comodin-de-oyentes-de-un-evento"><a class="header-anchor" href="#comodin-de-oyentes-de-un-evento" aria-hidden="true">#</a> Comodín de Oyentes de un Evento</h4> <p>Puedes incluso registrar oyentes usando el <code>*</code> como un parámetro comodín, lo que te permite capturar múltiples eventos en el mismo oyente. Los comodines de oyentes reciben el nombre del evento como su primer argumento y el arreglo de datos de eventos completo como su segundo argumento:</p> <div class="language-php extra-class"><pre v-pre class="language-php"><code>Event<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'event.*'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$eventName</span><span class="token punctuation">,</span> <span class="token keyword">array</span> <span class="token variable">$data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><a name="event-discovery"></a></p> <h3 id="descubrimiento-de-eventos"><a class="header-anchor" href="#descubrimiento-de-eventos" aria-hidden="true">#</a> Descubrimiento de Eventos</h3> <div class="danger custom-block"><p class="custom-block-title">Nota</p> <p>El Descubrimiento de Eventos solo está disponible para Laravel 5.8.9 o posterior.</p></div></div> <p>En vez de registrar eventos y oyentes (listeners) manualmente en el arreglo <code>$listen</code> del <code>EventServiceProvider</code>, puedes habilitar la detección automática de eventos. Cuando se habilita la detección de eventos, Laravel encontrará y registrará automáticamente tus eventos y oyentes escaneando el directorio <code>Listeners</code> de tu aplicación. Además, todos los eventos definidos explícitamente listados en el <code>EventServiceProvider</code> seguirán registrados.</p> <p>La detección de eventos está deshabilitada de forma predeterminada, pero puedes habilitarla sobreescribiendo el método <code>shouldDiscoverEvents</code> del <code>EventServiceProvider</code> de tu aplicación:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">/**
+* Determine if events and listeners should be automatically discovered.
+*
+* @return bool
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">shouldDiscoverEvents</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Por defecto, se escanearán todos los oyentes dentro del directorio <code>Listeners</code> de tu aplicación. Si deseas definir directorios adicionales para analizar, puedes sobreescribir el método <code>discoverEventsWithin</code> en tu <code>EventServiceProvider</code>:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token comment">/**
+* Get the listener directories that should be used to discover events.
+*
+* @return array
+*/</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">discoverEventsWithin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">path</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'Listeners'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>En producción, es probable que no desees que el framework analice todos tus oyentes en cada petición. Por lo tanto, durante tu proceso de despliegue, debes ejecutar el comando Artisan <code>event:cache</code> para almacenar en caché un manifiesto de todos los eventos y oyentes de tu aplicación. Este manifiesto será utilizado por el framework para acelerar el proceso de registro de eventos. El comando <code>event:clear</code> puede ser usado para destruir la caché.</p> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>El comando <code>event:list</code> puede ser usado para mostrar una lista de todos los eventos y oyentes registrados por tu aplicación.</p></div> <p><a name="defining-events"></a></p> <h2 id="definiendo-eventos"><a href="#definiendo-eventos" aria-hidden="true" class="header-anchor">#</a> Definiendo Eventos</h2> <p>Una clase de evento es un contenedor de datos que guarda la información relacionada con el evento. Por ejemplo, supongamos que nuestro evento <code>OrderShipped</code> (orden enviada) generado recibe un objeto <a href="/docs/%7B%7Bversion%7D%7D/eloquent">ORM Eloquent</a>:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Events</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Order</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>SerializesModels</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OrderShipped</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">SerializesModels</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token variable">$order</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+    * Create a new event instance.
+    *
+    * @param  \App\Order  $order
+    * @return void
+    */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>Order <span class="token variable">$order</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">order</span> <span class="token operator">=</span> <span class="token variable">$order</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><p>Como puedes ver, esta clase de evento no contiene lógica. Es un contenedor para la instancia <code>Order</code> que se compró. El trait <code>SerializesModels</code> utilizado por el evento serializará con elegancia cualquier modelo Eloquent si el objeto del evento se serializa utilizando la función de PHP <code>serialize</code>.</p> <p><a name="defining-listeners"></a></p> <h2 id="definiendo-oyentes"><a href="#definiendo-oyentes" aria-hidden="true" class="header-anchor">#</a> Definiendo Oyentes</h2> <p>A continuación, echemos un vistazo al oyente de nuestro evento de ejemplo. Los oyentes de eventos reciben la instancia de evento en su método <code>handle</code>. El comando <code>event:generate</code> importará automáticamente la clase de evento adecuada y declarará el tipo de evento en el método <code>handle</code>. Dentro del método <code>handle</code>, puedes realizar las acciones necesarias para responder al evento:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Listeners</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>OrderShipped</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SendShipmentNotification</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+    * Create the event listener.
+    *
+    * @return void
+    */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+    * Handle the event.
+    *
+    * @param  \App\Events\OrderShipped  $event
+    * @return void
+    */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span>OrderShipped <span class="token variable">$event</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Access the order using $event-&gt;order...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>Tus oyentes de eventos también pueden declarar el tipo de cualquier dependencia que necesiten de sus constructores. Todos los oyentes de eventos se resuelven a través <a href="/docs/%7B%7Bversion%7D%7D/container">contenedor de servicio</a> de Laravel, por lo que las dependencias se inyectarán automáticamente.</p></div> <h4 id="deteniendo-la-propagacion-de-un-evento"><a href="#deteniendo-la-propagacion-de-un-evento" aria-hidden="true" class="header-anchor">#</a> Deteniendo la propagación de un evento</h4> <p>A veces, es posible que desees detener la propagación de un evento a otros oyentes. Puede hacerlo devolviendo <code>false</code> desde el método<code>handle</code> de tu oyente.</p> <p><a name="queued-event-listeners"></a></p> <h2 id="oyentes-de-eventos-de-cola"><a href="#oyentes-de-eventos-de-cola" aria-hidden="true" class="header-anchor">#</a> Oyentes de Eventos de Cola</h2> <p>Los oyentes de colas pueden ser beneficiosos si tu oyente va a realizar una tarea lenta, como enviar un correo electrónico o realizar una solicitud HTTP. Antes de comenzar con oyentes de cola, asegúrate de <a href="/docs/%7B%7Bversion%7D%7D/queues">configurar su cola</a> e iniciar un oyente de colas en tu servidor o entorno de desarrollo local.</p> <p>Para especificar que un oyente debe estar en cola, agrega la interfaz <code>ShouldQueue</code> a la clase de oyente. Los oyentes generados por el comando de Artisan <code>event:generate</code> ya tienen esta interfaz importada en el espacio de nombres actual, por lo que puedes usarla inmediatamente:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Listeners</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>OrderShipped</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>ShouldQueue</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SendShipmentNotification</span> <span class="token keyword">implements</span> <span class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><p>¡Eso es! Ahora, cuando este oyente es llamado por un evento, el despachador de eventos lo colocará en cola automáticamente usando el <a href="/docs/%7B%7Bversion%7D%7D/queues">sistema de colas</a> de Laravel. Si no se lanzan excepciones cuando la cola ejecuta el oyente, el trabajo en cola se eliminará automáticamente una vez que haya terminado de procesarse.</p> <h4 id="personalizando-la-conexion-de-la-cola-y-el-nombre-de-la-cola"><a href="#personalizando-la-conexion-de-la-cola-y-el-nombre-de-la-cola" aria-hidden="true" class="header-anchor">#</a> Personalizando la conexión de la cola y el nombre de la cola</h4> <p>Si deseas personalizar la conexión de cola, el nombre de la cola o el tiempo de demora de la cola de un oyente de eventos, puedes definir las propiedades <code>$connection</code>, <code>$queue</code> o <code>$delay</code> en tu clase de oyente:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Listeners</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>OrderShipped</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>ShouldQueue</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SendShipmentNotification</span> <span class="token keyword">implements</span> <span class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+    * The name of the connection the job should be sent to.
+    *
+    * @var string|null
+    */</span>
+    <span class="token keyword">public</span> <span class="token variable">$connection</span> <span class="token operator">=</span> <span class="token single-quoted-string string">'sqs'</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+    * The name of the queue the job should be sent to.
+    *
+    * @var string|null
+    */</span>
+    <span class="token keyword">public</span> <span class="token variable">$queue</span> <span class="token operator">=</span> <span class="token single-quoted-string string">'listeners'</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+    * The time (seconds) before the job should be processed.
+    *
+    * @var int
+    */</span>
+    <span class="token keyword">public</span> <span class="token variable">$delay</span> <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><p><a name="manually-accessing-the-queue"></a></p> <h3 id="accediendo-manualmente-a-la-cola"><a href="#accediendo-manualmente-a-la-cola" aria-hidden="true" class="header-anchor">#</a> Accediendo Manualmente a la Cola</h3> <p>Si necesitas acceder manualmente a los métodos <code>delete</code> y<code>release</code> de la cola de trabajo subyacente del oyente, puedes hacerlo utilizando el trait <code>Illuminate\Queue\InteractsWithQueue</code>. Este trait se importa de forma predeterminada en los oyentes generados y proporciona acceso a estos métodos:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Listeners</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>OrderShipped</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>InteractsWithQueue</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>ShouldQueue</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SendShipmentNotification</span> <span class="token keyword">implements</span> <span class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">InteractsWithQueue</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+        * Handle the event.
+        *
+        * @param  \App\Events\OrderShipped  $event
+        * @return void
+        */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span>OrderShipped <span class="token variable">$event</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">release</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><p><a name="handling-failed-jobs"></a></p> <h3 id="manejo-de-trabajos-fallidos"><a href="#manejo-de-trabajos-fallidos" aria-hidden="true" class="header-anchor">#</a> Manejo de Trabajos Fallidos</h3> <p>A veces, tus oyentes de eventos en cola pueden fallar. Si el oyente en cola supera el número máximo de intentos según lo define tu trabajador de cola, se llamará al método <code>failed</code> en tu oyente. El método <code>failed</code> recibe la instancia del evento y la excepción que causó el error:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Listeners</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>OrderShipped</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>InteractsWithQueue</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>ShouldQueue</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SendShipmentNotification</span> <span class="token keyword">implements</span> <span class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">InteractsWithQueue</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+    * Handle the event.
+    *
+    * @param  \App\Events\OrderShipped  $event
+    * @return void
+    */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span>OrderShipped <span class="token variable">$event</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+    * Handle a job failure.
+    *
+    * @param  \App\Events\OrderShipped  $event
+    * @param  \Exception  $exception
+    * @return void
+    */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">failed</span><span class="token punctuation">(</span>OrderShipped <span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$exception</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><p><a name="dispatching-events"></a></p> <h2 id="despachando-eventos"><a href="#despachando-eventos" aria-hidden="true" class="header-anchor">#</a> Despachando Eventos</h2> <p>Para enviar un evento, puedes pasar una instancia del evento a la función de ayuda (helper) <code>event</code>. El helper enviará el evento a todos tus oyentes registrados. Dado que el helper <code>event</code> está disponible globalmente, puedes llamarlo desde cualquier lugar de tu aplicación:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Order</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Events<span class="token punctuation">\</span>OrderShipped</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OrderController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+    * Ship the given order.
+    *
+    * @param  int  $orderId
+    * @return Response
+    */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">ship</span><span class="token punctuation">(</span><span class="token variable">$orderId</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$order</span> <span class="token operator">=</span> Order<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">findOrFail</span><span class="token punctuation">(</span><span class="token variable">$orderId</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Order shipment logic...</span>
+
+        <span class="token function">event</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OrderShipped</span><span class="token punctuation">(</span><span class="token variable">$order</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>Al realizar pruebas, puede ser útil afirmar que ciertos eventos se enviaron sin activar realmente a tus oyentes. Las <a href="/docs/%7B%7Bversion%7D%7D/mocking#event-fake">funciones de ayuda (helpers) incluidas</a> en Laravel hace que sea fácil de hacerlo.</p></div> <p><a name="event-subscribers"></a></p> <h2 id="suscriptores-de-eventos"><a href="#suscriptores-de-eventos" aria-hidden="true" class="header-anchor">#</a> Suscriptores de Eventos</h2> <p><a name="writing-event-subscribers"></a></p> <h3 id="escribiendo-suscriptores-de-eventos"><a href="#escribiendo-suscriptores-de-eventos" aria-hidden="true" class="header-anchor">#</a> Escribiendo Suscriptores de Eventos</h3> <p>Los suscriptores de eventos son clases que pueden suscribirse a múltiples eventos dentro de la misma clase, lo que te permite definir varios manejadores de eventos dentro de una sola clase. Los suscriptores deben definir un método <code>subscribe</code>, al que se le pasará una instancia de despachador de eventos. Puedes llamar al método <code>listen</code> en el despachador dado para registrar los oyentes de eventos:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Listeners</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserEventSubscriber</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+    * Handle user login events.
+    */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handleUserLogin</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+    * Handle user logout events.
+    */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handleUserLogout</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+    * Register the listeners for the subscriber.
+    *
+    * @param  \Illuminate\Events\Dispatcher  $events
+    */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token variable">$events</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$events</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">listen</span><span class="token punctuation">(</span>
+            <span class="token single-quoted-string string">'Illuminate\Auth\Events\Login'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'App\Listeners\UserEventSubscriber@handleUserLogin'</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$events</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">listen</span><span class="token punctuation">(</span>
+            <span class="token single-quoted-string string">'Illuminate\Auth\Events\Logout'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'App\Listeners\UserEventSubscriber@handleUserLogout'</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div><p><a name="registering-event-subscribers"></a></p> <h3 id="registrando-suscriptores-de-eventos"><a href="#registrando-suscriptores-de-eventos" aria-hidden="true" class="header-anchor">#</a> Registrando Suscriptores de Eventos</h3> <p>Después de escribir el suscriptor, estás listo para registrarlo con el despachador de eventos. Puede registrar suscriptores usando la propiedad <code>$subscribe</code> en el <code>EventServiceProvider</code>. Por ejemplo, vamos a agregar el <code>UserEventSubscriber</code> a la lista:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span class="token punctuation">\</span>Support<span class="token punctuation">\</span>Providers<span class="token punctuation">\</span>EventServiceProvider</span> <span class="token keyword">as</span> ServiceProvider<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">EventServiceProvider</span> <span class="token keyword">extends</span> <span class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+    * The event listener mappings for the application.
+    *
+    * @var array
+    */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$listen</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+    * The subscriber classes to register.
+    *
+    * @var array
+    */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$subscribe</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\UserEventSubscriber'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/collections.html" class="prev">
+          Collecciones
+        </a></span> <span class="next"><a href="/filesystem.html">
+          Almacenamiento De Archivos
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.670d7e7c.js" defer></script><script src="/assets/js/36.4e90af03.js" defer></script>
+  </body>
+</html>
