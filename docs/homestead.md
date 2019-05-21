@@ -196,7 +196,7 @@ sites:
 
 Si cambias la propiedad `sites` apropiadamente después de haber provisionado el box de Homestead, deberás volver a ejecutar `vagrant reload --provision` para actualizar la configuración de Nginx en la máquina virtual.
 
-#### El Archivo Hosts
+#### Resolución del Nombre de Host
 
 Debes agregar los "dominios" para tus sitios de Nginx en el archivo `hosts` en tu máquina. El archivo `hosts` va a redirigir las peticiones de los sitios Homstead hacia tu máquina Homestead. En Mac y Linux, este archivo está ubicado en `/etc/hosts`. En Windows, este archivo está ubicado en `C:\Windows\System32\drivers\etc\hosts`. Las líneas que agregues a este archivo deberán verse de la siguiente forma:
 
