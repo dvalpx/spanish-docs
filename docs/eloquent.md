@@ -94,9 +94,56 @@ class Flight extends Model
 
 #### Claves Primarias
 
-Eloquent asumirá que cada tabla tiene una columna de clave primaria denominada `id`. Puedes definir una propiedad `$primaryKey` protegida para sobrescribir esta convención.
+Eloquent asumirá que cada tabla tiene una columna de clave primaria denominada `id`. Puedes definir una propiedad `$primaryKey` protegida para sobrescribir esta convención:
 
-Además, Eloquent asume que la clave primaria es un valor entero autoincremental, lo que significa que de forma predeterminada la clave primaria será convertida a un tipo `int` automáticamente. Si deseas usar una clave primaria que no sea de autoincremeneto o numérica debes establecer la propiedad pública `$incrementing` de tu modelo a `false`. Si tu clave primaria no es un entero, debes establecer la propiedad protegida `$keyType` de tu modelo a `string`.
+```php
+<?php
+
+namespace App;
+use Illuminate\Database\Eloquent\Model;
+
+class Flight extends Model
+{
+    /**
+    * The primary key associated with the table.
+    *
+    * @var string
+    */
+    protected $primaryKey = 'flight_id';
+}
+```
+
+Además, Eloquent asume que la clave primaria es un valor entero autoincremental, lo que significa que de forma predeterminada la clave primaria será convertida a un tipo `int` automáticamente. Si deseas usar una clave primaria que no sea de autoincremeneto o numérica debes establecer la propiedad pública `$incrementing` de tu modelo a `false`:
+
+```php
+<?php
+
+class Flight extends Model
+{
+    /**
+    * Indicates if the IDs are auto-incrementing.
+    *
+    * @var bool
+    */
+    public $incrementing = false;
+}
+```
+
+Si tu clave primaria no es un entero, debes establecer la propiedad protegida `$keyType` de tu modelo a `string`:
+
+```php
+<?php
+
+class Flight extends Model
+{
+    /**
+    * The "type" of the auto-incrementing ID.
+    *
+    * @var string
+    */
+    protected $keyType = 'string';
+}
+```
 
 #### Marcas De Tiempo O Timestamps
 
@@ -1016,6 +1063,16 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
+    * Register any application services.
+    *
+    * @return void
+    */
+    public function register()
+    {
+        //
+    }
+
+    /**
     * Bootstrap any application services.
     *
     * @return void
@@ -1023,16 +1080,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         User::observe(UserObserver::class);
-    }
-
-    /**
-    * Register the service provider.
-    *
-    * @return void
-    */
-    public function register()
-    {
-        //
     }
 }
 ```

@@ -73,7 +73,7 @@ class CreateFlightsTable extends Migration
     public function up()
     {
         Schema::create('flights', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('airline');
             $table->timestamps();
@@ -171,7 +171,7 @@ Para crear una nueva tabla en la base de datos, usa el método `create` en la cl
 
 ```php
 Schema::create('users', function (Blueprint $table) {
-    $table->increments('id');
+    $table->bigIncrements('id');
 });
 ```
 
@@ -197,7 +197,7 @@ Si quieres ejecutar una operación de esquema en una conexión de base de datos 
 
 ```php
 Schema::connection('foo')->create('users', function (Blueprint $table) {
-    $table->increments('id');
+    $table->bigIncrements('id');
 });
 ```
 
@@ -285,6 +285,7 @@ Comando  |  Descripción
 `$table->point('position');`  |  Tipo de columna equivalente a POINT.
 `$table->polygon('positions');`  |  Tipo de columna equivalente a POLYGON.
 `$table->rememberToken();`  |  Permite nulos en el tipo de columna equivalente a VARCHAR(100) `remember_token`.
+`$table->set('flavors', ['strawberry', 'vanilla']);`  |  Establece una columna equivalente.
 `$table->smallIncrements('id');`  |  Tipo de columna equivalente a Auto-incremento UNSIGNED SMALLINT (clave primaria).
 `$table->smallInteger('votes');`  |  Tipo de columna equivalente a SMALLINT.                      
 `$table->softDeletes();`  |  Permite nulos en el tipo de columna equivalente a TIMESTAMP `deleted_at` para eliminaciones.
@@ -410,13 +411,14 @@ Eliminar o modificar múltiples columnas dentro de una sola migración al moment
 
 #### Alias de Comandos Disponibles
 
-| Comando                        | Descripción                                        |
-| ------------------------------ | -------------------------------------------------- |
-| `$table->dropRememberToken();` | Eliminar la columna `remember_token`.              |
-| `$table->dropSoftDeletes();`   | Eliminar la columna `deleted_at`.                  |
-| `$table->dropSoftDeletesTz();` | Alias del método `dropSoftDeletes()`.              |
-| `$table->dropTimestamps();`    | Eliminar las columnas `created_at` y `updated_at`. |
-| `$table->dropTimestampsTz();`  | Alias del método `dropTimestamps()`.               |
+| Comando                            | Descripción                                             |
+| ---------------------------------- | ------------------------------------------------------- |
+| `$table->dropMorphs('morphable');` | Elimina las columnas `morphable_id` y `morphable_type`. |
+| `$table->dropRememberToken();`     | Eliminar la columna `remember_token`.                   |
+| `$table->dropSoftDeletes();`       | Eliminar la columna `deleted_at`.                       |
+| `$table->dropSoftDeletesTz();`     | Alias del método `dropSoftDeletes()`.                   |
+| `$table->dropTimestamps();`        | Eliminar las columnas `created_at` y `updated_at`.      |
+| `$table->dropTimestampsTz();`      | Alias del método `dropTimestamps()`.                    |
 
 <a name="indexes"></a>
 ## Índices

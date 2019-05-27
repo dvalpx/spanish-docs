@@ -56,9 +56,7 @@ Si estás utilizando Windows, puede que necesites habilitar la virtualización p
 - PHP 7.2
 - PHP 7.1
 - Nginx
-- Apache (Opcional)
 - MySQL
-- MariaDB (Opcional)
 - Sqlite3
 - PostgreSQL
 - Composer
@@ -67,14 +65,25 @@ Si estás utilizando Windows, puede que necesites habilitar la virtualización p
 - Memcached
 - Beanstalkd
 - Mailhog
-- Neo4j (Opcional)
-- MongoDB (Opcional)
-- Elasticsearch (Opcional)
 - ngrok
 - wp-cli
-- Zend Z-Ray
-- Go
 - Minio
+
+<a name="optional-software"></a>
+### Software Opcional
+
+- Apache
+- Crystal & Lucky Framework
+- Dot Net Core
+- Elasticsearch
+- Go
+- MariaDB
+- MongoDB
+- Neo4j
+- Oh My Zsh
+- Ruby & Rails
+- Webdriver & Laravel Dusk Utilities
+- Zend Z-Ray
 
 <a name="installation-and-setup"></a>
 ## Instalación Y Configuración
@@ -113,8 +122,8 @@ Debes hacer checkout a alguna versión etiquetada de Homestead ya que la rama `m
 ```php
 cd ~/Homestead
 
-// Clonar al release deseado...
-git checkout v8.0.1
+// Clonar el release deseado...
+git checkout v8.4.0
 ```
 
 Una vez que hayas clonado el repositorio, ejecuta el comando `bash init.sh` desde el directorio Homestead para crear el archivo de configuración `Homestead.yaml`. El archivo `Homestead.yaml` estará situado en el directorio Homestead:
@@ -169,7 +178,7 @@ folders:
 ```
 
 ::: danger Nota
-Cuando uses NFS, debes considerar instalar el plugin [vagrant-winnfsd](https://github.com/winnfsd/vagrant-winnfsd). Este plugin mantendrá correctamente el usuario / grupo para los archivos y directorios dentro del box de Homestead.
+Cuando uses NFS en Windows, debes considerar instalar el plugin [vagrant-winnfsd](https://github.com/winnfsd/vagrant-winnfsd). Este plugin mantendrá correctamente el usuario / grupo para los archivos y directorios dentro del box de Homestead.
 :::
 
 También puedes indicar cualquier opción soportada por los [Directorios Sincronizados](https://www.vagrantup.com/docs/synced-folders/basic_usage.html) de Vagrant, listándolos bajo la clave `options`:
@@ -196,7 +205,7 @@ sites:
 
 Si cambias la propiedad `sites` apropiadamente después de haber provisionado el box de Homestead, deberás volver a ejecutar `vagrant reload --provision` para actualizar la configuración de Nginx en la máquina virtual.
 
-#### Resolución del Nombre de Host
+#### El Archivo Hosts
 
 Debes agregar los "dominios" para tus sitios de Nginx en el archivo `hosts` en tu máquina. El archivo `hosts` va a redirigir las peticiones de los sitios Homstead hacia tu máquina Homestead. En Mac y Linux, este archivo está ubicado en `/etc/hosts`. En Windows, este archivo está ubicado en `C:\Windows\System32\drivers\etc\hosts`. Las líneas que agregues a este archivo deberán verse de la siguiente forma:
 
@@ -644,6 +653,10 @@ sudo apt-get -y \
     install your-package
 ```
 
+### Personalizaciones de Usuario
+
+Al usar Homestead en un ambiente de equipo, puedes querer configurar Homestead para que se ajuste mejor a tu estilo de desarrollo personal. Puedes crear un archivo `user-customizations.sh` en la raiz de tu directorio Homestead (el mismo directorio que contiene tu `Homestead.yaml`). Dentro de este archivo, puedes hacer cualquier personalización que quieras; sin embargo, `user-customizations.sh` no debe ser versionado.
+
 <a name="updating-homestead"></a>
 ## Actualizar Homestead
 
@@ -658,7 +671,7 @@ Después, debes actualizar el código fuente de Homestead. Si clonaste el reposi
 ```php
 git fetch
 
-git checkout v8.0.1
+git checkout v8.4.0
 ```
 
 Estos comandos traen el código más reciente de Homestead del repositorio de GitHub, recuperan las últimas etiquetas y luego revisan la última versión etiquetada. Puede encontrar la última versión de lanzamiento estable en la [página de lanzamientos de GitHub](https://github.com/laravel/homestead/releases).
@@ -689,7 +702,7 @@ Por defecto, Homestead configura la opcion `natdnshostresolver` como `on`. Esto 
 
 ```php
 provider: virtualbox
-natdnshostresolver: off
+natdnshostresolver: 'off'
 ```
 
 #### Enlaces Simbólicos En Windows

@@ -18,7 +18,8 @@
     - [PHP](#php)
 - [Forms](#forms)
 	- [Campo CSRF](#csrf-field)
-    - [Campo Method](#method-field)    
+    - [Campo Method](#method-field)
+    - [Errores De Validación](#validation-errors)  
 - [Incluyendo Sub-Vistas](#including-sub-views)
     - [Renderizar Vistas Para Colecciones](#rendering-views-for-collections)
 - [Stacks](#stacks)
@@ -90,6 +91,12 @@ En este ejemplo, la sección `sidebar` está utilizando la directiva `@@parent` 
 ::: tip
 Contrario al ejemplo anterior, esta sección `sidebar` termina con `@endsection` en lugar de `@show`. La directiva `@endsection` sólo definirá una sección mientras que `@show` definirá y **automáticamente creará un yield** de la sección.
 :::
+
+La directiva `@yield` también acepta un valor por defecto como segundo parametro. Este valor será renderizado si la sección siendo generada es undefined:
+
+```php
+@yield('content', View::make('view.name'))
+```
 
 Las vistas de Blade se pueden retornar desde las rutas usando el helper global `view`:
 
@@ -554,6 +561,20 @@ Dado que los formularios HTML no pueden hacer solicitudes `PUT`, `PATCH` o `DELE
 </form>
 ```
 
+<a name="validation-errors"></a>
+### Errores De Validación
+
+La directiva `@error` puede ser usada para comprobar rápidamente si existen [mensajes de error de validación](/docs/{{version}}/validation#quick-displaying-the-validation-errors) para un atributo dado. Para una directiva `@error`, puedes imprimir la variable `$message` para mostrar el mensaje de error:
+
+```php
+<!-- /resources/views/post/create.blade.php -->
+<label for="title">Post Title</label>
+<input id="title" type="text" class="@error('title') is-invalid @enderror">
+@error('title')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
+```
+
 <a name="including-sub-views"></a>
 ## Incluyendo Sub-Vistas
 
@@ -706,25 +727,28 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-    * Perform post-registration booting of services.
-    *
-    * @return void
-    */
-    public function boot()
-    {
-        Blade::directive('datetime', function ($expression) {
-            return "<?php echo ($expression)->format('m/d/Y H:i'); ?>";
-        });
-    }
-
-    /**
     * Register bindings in the container.
     *
     * @return void
     */
     public function register()
     {
+        Blade::directive('datetime', function ($expression) {
+            return "<?php echo ($expression)->format('m/d/Y H:i'); ?>";
+        });
         //
+    }
+    /**
+    * Bootstrap any application services.
+    *
+    * @return void
+    */
+    public function boot()
+    {
+        //
+        Blade::directive('datetime', function ($expression) {
+            return "<?php echo ($expression)->format('m/d/Y H:i'); ?>";
+        });
     }
 }
 ```

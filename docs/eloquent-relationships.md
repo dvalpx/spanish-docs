@@ -453,6 +453,10 @@ class Role extends Model
 }
 ```
 
+::: danger Nota
+**Nota:** Los modelos Pivot no pueden usar el trait `SoftDeletes`. Si necesitas hacer soft delete de registros pivot considera convertir tu modelo pivot a un modelo de Eloquent.
+:::
+
 #### Modelos De Pivote Personalizados E IDs Incrementales
 
 Si has definido una relación de muchos a muchos que usa un modelo de pivote personalizado, y ese modelo de pivote tiene una clave primaria de incremento automático, debes asegurarte de que su clase de modelo de pivote personalizado defina una propiedad `incrementing` que se establece en` true `.
@@ -936,6 +940,34 @@ $user->posts()->where('active', 1)->get();
 
 Puedes usar cualquiera de los métodos de [constructor de consultas](/docs/{{version}}/queries) y así que asegúrate de revisar la documentación del constructor de consultas para aprender sobre todos los métodos disponibles.
 
+#### Encadenando Cláusulas `orWhere` En Relaciones
+
+Como se demostró en el ejemplo superior, eres libre de agregar restriciones adicionales a las relaciones al momento de realizar peticiones. Sin embargo, ten cuidado al encadenar cláusulas `orWhere` a una relación, dado que las cláusulas `orWhere` serán agrupadas lógicamente en el mismo nivel que la restricción de la relación:
+
+```php
+$user->posts()
+        ->where('active', 1)
+        ->orWhere('votes', '>=', 100)
+        ->get();
+
+// select * from posts 
+// where user_id = ? and active = 1 or votes >= 100
+```
+
+En la mayoria de los casos, probablemente pretendes usar [grupos de restricciones](/docs/{{version}}/queries#parameter-grouping) para agrupar logicamente las comprobaciones condicionales entre parentisis:
+
+```php
+$user->posts()
+        ->where(function ($query) {
+            return $query->where('active', 1)
+                            ->orWhere('votes', '>=', 100);
+        })
+        ->get();
+
+// select * from posts 
+// where user_id = ? and (active = 1 or votes >= 100)
+```
+
 <a name="relationship-methods-vs-dynamic-properties"></a>
 ### Métodos De Relación Vs. Propiedades Dinámicas
 
@@ -1062,7 +1094,7 @@ echo $posts[0]->pending_comments_count;
 Si estás combinando `withCount` con una instrucción `select`, asegúrate de llamar a `withCount` después del método `select`:
 
 ```php
-$posts = App\Post::select(['title', 'body'])->withCount('comments');
+$posts = App\Post::select(['title', 'body'])->withCount('comments')->get();
 
 echo $posts[0]->title;
 echo $posts[0]->body;
@@ -1144,12 +1176,58 @@ $books = App\Book::with('author.contacts')->get();
 No siempre necesitas todas las columna de las relaciones que estás obteniendo. Por esta razón, Eloquent te permite que especificar cuáles columnas de la relación te gustaría obtener:
 
 ```php
-$users = App\Book::with('author:id,name')->get();
+$books = App\Book::with('author:id,name')->get();
 ```
 
 ::: danger Nota
 Al momento de usar esta característica, siempre debes incluir la columna `id` en la lista de columnas que deseas obtener.
 :::
+
+Para relaciones "tiene muchos" necesitas especificar tanto `id` como `foreign_key`
+
+```php
+$books = App\Book::with('chapter:id,book_id,name')->get();
+```
+
+::: danger Nota
+Al usar esta caracteristica, siempre debes incluir la columna `id` y cualquier columna de clave foranea relevante en la lista de columnas que deseas retornar.
+:::
+
+#### Carga Previa Por Defecto
+
+Algunas veces vas a querer cargar siempre algunas relaciones al retornar un modelo. Para lograr esto, puedes definir una propiedad `$with` en el modelo:
+
+```php
+<?php
+
+namespace App;
+use Illuminate\Database\Eloquent\Model;
+
+class Book extends Model
+{
+    /**
+    * Always load the related author when retrieving a book
+    * The relationships that should always be loaded.
+    *
+    * @var array
+    */
+    protected $with = ['author'];
+    
+    /**
+    * Get the author that wrote the book.
+    */
+    public function author()
+    {
+        return $this->belongsTo('App\Author');
+    }
+}
+```   
+
+Si te gustaria remover un elemento de la propiedad `$with` para una sola petición, puedes usar el método `without`:
+
+```php
+$books = App\Book::without('author')->get();
+```
 
 <a name="constraining-eager-loads"></a>
 ### Restringiendo Cargas Previas
@@ -1347,7 +1425,7 @@ $user->save();
 <a name="default-models"></a>
 #### Modelos Predeterminados
 
-La relación `belongsTo` te permite definir un modelo predeterminado que se devolverá si la relación dada es `null`. A este patrón se le conoce comúnmente como [patrón Null Object](https://en.wikipedia.org/wiki/Null_Object_pattern) y puede ayudar a quitar comprobaciones condicionales en tu código. En el ejemplo siguiente, la relación `user` devolverá un modelo `App\User` vacío si no hay un `user` adjunto a la publicación:
+Las relaciones `belongsTo`, `hasOne`, `hasOneThrough` y `morphOne` te permiten definir un modelo predeterminado que se devolverá si la relación dada es `null`. A este patrón se le conoce comúnmente como [patrón Null Object](https://en.wikipedia.org/wiki/Null_Object_pattern) y puede ayudar a quitar comprobaciones condicionales en tu código. En el ejemplo siguiente, la relación `user` devolverá un modelo `App\User` vacío si no hay un `user` adjunto a la publicación:
 
 ```php
 /**

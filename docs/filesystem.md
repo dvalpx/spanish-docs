@@ -222,6 +222,16 @@ $url = Storage::temporaryUrl(
 );
 ```
 
+Si necesitas especificar [parametros de petición de S3](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html#RESTObjectGET-requests) adicionales, puedes pasar el arreglo de parametros de petición como tercer argumento del método `temporaryUrl`:
+
+```php
+$url = Storage::temporaryUrl(
+    'file.jpg', 
+    now()->addMinutes(5), 
+    ['ResponseContentType' => 'application/octet-stream'],
+);
+```
+
 #### Personalización Del Host De URL Local
 
 Si te gustaría predefinir el host para archivos almacenados en un disco usando el driver `local`, puedes agregar una opción `url` al arreglo de configuración del disco:
@@ -452,7 +462,7 @@ Storage::makeDirectory($directory);
 
 #### Eliminar Un Directorio
 
-Finalmente, `deleteDirectory` puede ser usado para eliminar un directorio y todos sus archivos:
+Finalmente, el método `deleteDirectory` puede ser usado para eliminar un directorio y todos sus archivos:
 
 ```php
 Storage::deleteDirectory($directory);
@@ -485,7 +495,17 @@ use Spatie\FlysystemDropbox\DropboxAdapter;
 class DropboxServiceProvider extends ServiceProvider
 {
     /**
-    * Perform post-registration booting of services.
+    * Register bindings in the container.
+    *
+    * @return void
+    */
+    public function register()
+    {
+        //
+    }
+
+    /**
+    * Bootstrap any application services.
     *
     * @return void
     */
@@ -498,16 +518,6 @@ class DropboxServiceProvider extends ServiceProvider
 
             return new Filesystem(new DropboxAdapter($client));
         });
-    }
-
-    /**
-    * Register bindings in the container.
-    *
-    * @return void
-    */
-    public function register()
-    {
-        //
     }
 }
 ```

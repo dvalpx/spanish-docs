@@ -45,6 +45,24 @@ Para habilitar las claves foráneas en conexiones de SQLite, debes agregar la op
 ],
 ```
 
+#### Configuración Usando URLs
+
+Típicamente, las conexiones a bases de datos son configuradas usando múltiples valores de configuración como `host`, `database`, `username`, `password`, etc. Cada uno de esos valores de configuración tiene su propia variable de entorno correspondiente. Esto quiere decir que al configurar tu información de conexión a la base de datos en un servidor de producción, necesitas administrar múltiples variables de entorno.
+
+Algunos proveedores de bases de datos administrados como Heroku proporcionan una única "URL" de base de datos que contiene toda la información de conexión para la base de datos en una única cadena. Una URL de base de datos de ejemplo podría verse de la siguiente manera:
+
+```php
+mysql://root:password@127.0.0.1/forge?charset=UTF-8
+```
+
+Estas URLs típicamente siguen una convención de esquema estándar:
+
+```php
+driver://username:password@host:port/database?options
+```
+
+Por conveniencia, Laravel soporta dichas URLs como alternativa a configurar tu base de datos con múltiples opciones de configuración. Si la opción de configuración `url` (o variable de entorno `DATABASE_URL` correspondiente) está presente, esta será usada para extraer la conexión a la base de datos y la información de credenciales.
+
 <a name="read-and-write-connections"></a>
 ### Conexiones de Lectura & Escritura
 
@@ -55,10 +73,15 @@ Para ver cómo las conexiones de lectura / escritura deberían ser configuradas,
 ```php
 'mysql' => [
     'read' => [
-        'host' => ['192.168.1.1'],
+        'host' => [
+            '192.168.1.1',
+            '196.168.1.2',
+        ],
     ],
     'write' => [
-        'host' => ['196.168.1.2'],
+        'host' => [
+            '196.168.1.3',
+        ],
     ],
     'sticky'    => true,
     'driver'    => 'mysql',
@@ -73,7 +96,7 @@ Para ver cómo las conexiones de lectura / escritura deberían ser configuradas,
 
 Observa que tres claves han sido agregadas al arreglo de configuración: `read`, `write` y `sticky`. Las claves `read` y `write` tienen valores de arreglo conteniendo una sola clave: la dirección ip del `host`. El resto de las opciones de la base de datos para las conexiones `read` y `write` serán tomadas del arreglo principal `mysql`.
 
-Únicamente necesitas colocar elementos en los arreglos `read` y `write` si deseas sobreescribir los valores del arreglo principal. Así, en este caso, `192.168.1.1` será usado como la máquina para la conexión de "lectura", mientras que `192.168.1.2` será usada para la conexión de "escritura".  Las credenciales de bases de datos, prefijo, conjunto de caracteres, y todas las demás opciones en el arreglo principal `mysql` serán compartidas a través de ambas conexiones.
+Únicamente necesitas colocar elementos en los arreglos `read` y `write` si deseas sobreescribir los valores del arreglo principal. Así, en este caso, `192.168.1.1` será usado como la máquina para la conexión de "lectura", mientras que `192.168.1.3` será usada para la conexión de "escritura".  Las credenciales de bases de datos, prefijo, conjunto de caracteres, y todas las demás opciones en el arreglo principal `mysql` serán compartidas a través de ambas conexiones.
 
 #### La Opción `sticky`
 

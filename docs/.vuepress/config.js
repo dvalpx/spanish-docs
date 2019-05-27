@@ -1,5 +1,4 @@
 module.exports = {
-	base: '/',
 	title: 'Documentación de Laravel en Español',
   	head: [
   		['link', {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Catamaran:300,700|Miriam+Libre'}]

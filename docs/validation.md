@@ -172,6 +172,21 @@ Así, en nuestro ejemplo, el usuario será redirigido al método `create` de nue
 <!-- Create Post Form -->
 ```
 
+#### Directiva `@error`
+
+También puedes usar la directiva `@error` de [Blade](/docs/{{version}}/blade) para rápidamente comprobar si los mensajes de error de validación existen para un atributo dado. Dentro de una directiva `@error`, puedes mostrar la variable `$message` para mostrar el mensaje de error:
+
+```php
+<!-- /resources/views/post/create.blade.php -->
+
+<label for="title">Post Title</label>
+<input id="title" type="text" class="@error('title') is-invalid @enderror">
+
+@error('title')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
+```
+
 <a name="a-note-on-optional-fields"></a>
 ### Una Observación Sobre los Campos Opcionales
 
@@ -624,6 +639,7 @@ Debajo hay una lista con todas las reglas de validación disponibles y su funci�
 [Dimensions (Image Files)](#rule-dimensions)
 [Distinct](#rule-distinct)
 [E-Mail](#rule-email)
+[Ends With](#rule-ends-with)
 [Exists (Database)](#rule-exists)
 [File](#rule-file)
 [Filled](#rule-filled)
@@ -656,7 +672,6 @@ Debajo hay una lista con todas las reglas de validación disponibles y su funci�
 [Required Without All](#rule-required-without-all)
 [Same](#rule-same)
 [Size](#rule-size)
-[Sometimes](#conditionally-adding-rules)
 [Starts With](#rule-starts-with)
 [String](#rule-string)
 [Timezone](#rule-timezone)
@@ -819,6 +834,11 @@ Al momento de trabajar con arreglos, el campo bajo validación no debe tener nin
 #### email
 
 El campo bajo validación debe estar formateado como una dirección de correo electrónico.
+
+<a name="rule-ends-with"></a>
+#### ends_with:_foo_,_bar_,...
+
+El campo bajo validación debe terminar con alguno de los valores dados.
 
 <a name="rule-exists"></a>
 #### exists:_table_,_column_
@@ -1369,6 +1389,16 @@ use Illuminate\Support\Facades\Validator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
+    * Register any application services.
+    *
+    * @return void
+    */
+    public function register()
+    {
+        //
+    }
+
+    /**
     * Bootstrap any application services.
     *
     * @return void
@@ -1378,16 +1408,6 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('foo', function ($attribute, $value, $parameters, $validator) {
             return $value == 'foo';
         });
-    }
-
-    /**
-    * Register the service provider.
-    *
-    * @return void
-    */
-    public function register()
-    {
-        //
     }
 }
 ```

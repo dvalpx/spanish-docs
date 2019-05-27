@@ -10,6 +10,7 @@
     - [Modelo Facturable](#billable-model)
     - [API Keys](#api-keys)
     - [Configuración de Moneda](#currency-configuration)
+    - [Webhooks](#webhooks)
 - [Suscripciones](#subscriptions)
     - [Creando Suscripciones](#creating-subscriptions)
     - [Verificando El Estado De Suscripción](#checking-subscription-status)
@@ -76,16 +77,16 @@ composer require laravel/cashier
 Antes de usar Cashier, también necesitaremos [preparar la base de datos](/docs/{{version}}/migrations). Necesitas agregar varias columnas a tu tabla `users` y crear una nueva tabla `subscriptions` para manejar todas las subscripciones de nuestros clientes:
 
 ```php
-Schema::table('users', function ($table) {
+Schema::table('users', function (Blueprint $table) {
     $table->string('stripe_id')->nullable()->collation('utf8mb4_bin');
     $table->string('card_brand')->nullable();
     $table->string('card_last_four', 4)->nullable();
     $table->timestamp('trial_ends_at')->nullable();
 });
 
-Schema::create('subscriptions', function ($table) {
-    $table->increments('id');
-    $table->unsignedInteger('user_id');
+Schema::create('subscriptions', function (Blueprint $table) {
+    $table->bigIncrements('id');
+    $table->unsignedBigInteger('user_id');
     $table->string('name');
     $table->string('stripe_id')->collation('utf8mb4_bin');
     $table->string('stripe_plan');
@@ -119,7 +120,7 @@ Finalmente, deberías configurar tu clave de Stripe en tu archivo de configuraci
 
 ```php
 'stripe' => [
-    'model'  => App\User::class,
+    'model' => App\User::class,
     'key' => env('STRIPE_KEY'),
     'secret' => env('STRIPE_SECRET'),
     'webhook' => [
@@ -139,6 +140,11 @@ use Laravel\Cashier\Cashier;
 
 Cashier::useCurrency('eur', '€');
 ```
+
+<a name="webhooks"></a>
+### Webhooks
+
+Para asegurarte de que Cashier maneja apropiadamente todos los eventos de Stripe, recomendamos profundamente [configurar el manejador de webhook de Cashier](#handling-stripe-webhooks).
 
 <a name="subscriptions"></a>
 ## Subscripciones

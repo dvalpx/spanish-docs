@@ -11,6 +11,7 @@
 - [Parseo De Variables De Entorno](#environment-variable-parsing)
 - [Cambio de Directorio de Archivos Markdown](#markdown-file-directory-change)
 - [Canales De Notificación Nexmo / Slack](#nexmo-slack-notification-channels)
+- [Nuevo Tamaño Por Defecto De Contraseña](#new-default-password-length)
 </div>
 
 <a name="medium-impact-changes"></a>
@@ -48,7 +49,7 @@ Luego, examina cualquier paquete de terceros que sean consumidos por tu aplicaci
 
 **Probabilidad De Impacto: Muy Baja** 
 
-La firma del método `environment` del contrato `Illuminate/Contracts/Foundation/Application` [ha cambiado](https://github.com/laravel/framework/pull/26296). Si estás implementando este contrato en tu aplicación, debes actualizar la firma del método:
+La firma del método `environment` del contrato `Illuminate\Contracts\Foundation\Application` [ha cambiado](https://github.com/laravel/framework/pull/26296). Si estás implementando este contrato en tu aplicación, debes actualizar la firma del método:
 
     /**
      * Get or check the current application environment.
@@ -62,7 +63,7 @@ La firma del método `environment` del contrato `Illuminate/Contracts/Foundation
 
 **Probabilidad De Impacto: Muy Baja**
 
-Los métodos `bootstrapPath`, `configPath`, `databasePath`, `environmentPath`, `resourcePath`, `storagePath`, `resolveProvider`, `bootstrapWith`, `configurationIsCached`, `detectEnvironment`, `environmentFile`, `environmentFilePath`, `getCachedConfigPath`, `getCachedRoutesPath`, `getLocale`, `getNamespace`, `getProviders`, `hasBeenBootstrapped`, `loadDeferredProviders`, `loadEnvironmentFrom`, `routesAreCached`, `setLocale`, `shouldSkipMiddleware` y `terminate`  [Fueron añadidos a la interfaz `Illuminate/Contracts/Foundation/Application`](https://github.com/laravel/framework/pull/26477).
+Los métodos `bootstrapPath`, `configPath`, `databasePath`, `environmentPath`, `resourcePath`, `storagePath`, `resolveProvider`, `bootstrapWith`, `configurationIsCached`, `detectEnvironment`, `environmentFile`, `environmentFilePath`, `getCachedConfigPath`, `getCachedRoutesPath`, `getLocale`, `getNamespace`, `getProviders`, `hasBeenBootstrapped`, `loadDeferredProviders`, `loadEnvironmentFrom`, `routesAreCached`, `setLocale`, `shouldSkipMiddleware` y `terminate`  [Fueron añadidos a la interfaz `Illuminate\Contracts\Foundation\Application`](https://github.com/laravel/framework/pull/26477).
 
 En el caso poco probable de que implementes esta interfaz, debes añadir estos métodos a la implementación. 
 
@@ -83,11 +84,14 @@ Pero cuando se usa Laravel 5.8, el token se pasa al helper `route` como un pará
 
 Por lo tanto, si estás definiendo tu propia ruta `password.reset`, debes asegurarte de que contenga un parámetro` {token} `en tu URI.
 
+<a name="new-default-password-length"></a>
 #### Nueva Longitud De Contraseña Por Defecto
 
-**Probabilidad De Impacto: Baja**
+**Probabilidad De Impacto: Alta**
 
-La longitud de la contraseña requerida al elegir o restablecer una contraseña se [cambió a al menos ocho caracteres](https://github.com/laravel/framework/pull/25957).
+La longitud de la contraseña requerida al elegir o restablecer una contraseña se [cambió a ocho caracteres](https://github.com/laravel/framework/pull/25957). Debes actualizar cualquier regla de validación o lógica dentro de tu aplicación para que coincida con esta regla por defecto.
+
+Si necesitas preservar los anteriores seis caracteres o un tamaño diferente, puedes extender la clase `Illuminate\Auth\Passwords\PasswordBroker` y sobrescribir el método `validatePasswordWithDefaults` con lógica personalizada.
 
 <a name="cache"></a>
 ### Caché
@@ -195,7 +199,7 @@ La firma del método `firstWhere` [ha cambiado](https://github.com/laravel/frame
 
 **Probabilidad De Impacto: Muy Baja**
 
-El método `terminate` [se ha agregado al contrato `Illuminate/Contracts/Console/Kernel`](https://github.com/laravel/framework/pull/26393). Si estás implementando esta interfaz, debes agregar este método a tu implementación.
+El método `terminate` [se ha agregado al contrato `Illuminate\Contracts\Console\Kernel`](https://github.com/laravel/framework/pull/26393). Si estás implementando esta interfaz, debes agregar este método a tu implementación.
 
 <a name="container"></a>
 ### Contenedor
@@ -361,7 +365,7 @@ Para más información, por favor revisa la [guía de actualización de phpdoten
 
 **Probabilidad De Impacto: Baja**
 
-El método `fire` (que fue puesto en desuso en Laravel 5.4) de la clase `Illuminate/Events/Dispatcher` [ha sido eliminado](https://github.com/laravel/framework/pull/26392). 
+El método `fire` (que fue puesto en desuso en Laravel 5.4) de la clase `Illuminate\Events\Dispatcher` [ha sido eliminado](https://github.com/laravel/framework/pull/26392). 
 Debes usar el método `dispatch` en su lugar.
 
 <a name="exception-handling"></a>
@@ -473,11 +477,11 @@ El método `transform` del middleware `Illuminate\Foundation\Http\Middleware\Tra
 
 El método `previous` [se ha agregado al contrato `Illuminate\Contracts\Routing\UrlGenerator`](https://github.com/laravel/framework/pull/25616). Si estás implementando esta interfaz, debes agregar este método a tu implementación.
 
-#### La Propiedad `cachedSchema` De `Illuminate/Routing/UrlGenerator`
+#### La Propiedad `cachedSchema` De `Illuminate\Routing\UrlGenerator`
 
 **Probabilidad De Impacto: Muy Baja**
 
-El nombre de la propiedad `$cachedSchema` (que ha quedado en desuso en Laravel` 5.7`) de `Illuminate/Routing/UrlGenerator` [se ha cambiado a](https://github.com/laravel/framework/pull/26728) `$cachedScheme`.
+El nombre de la propiedad `$cachedSchema` (que ha quedado en desuso en Laravel` 5.7`) de `Illuminate\Routing\UrlGenerator` [se ha cambiado a](https://github.com/laravel/framework/pull/26728) `$cachedScheme`.
 
 <a name="sessions"></a>
 ### Sesiones
