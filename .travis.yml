@@ -13,8 +13,8 @@ install:
     - npm install -g vuepress
     - npm install vuepress-plugin-export
 script:
-    - npm run docs:build
     - npm run docs:pdf
+    - npm run docs:build
 cache:
     directories:
         - "node_modules"
