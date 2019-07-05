@@ -4,7 +4,8 @@ module.exports = {
 		['link', {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Catamaran:300,700|Miriam+Libre'}],
 		['link', { rel: 'icon', href: '/favicon.png' }]
   	],
-  	description: 'Documentación de Laravel en Español',
+	description: 'Documentación de Laravel en Español',
+	plugins: ['vuepress-plugin-export'],
   	themeConfig: {
     	nav: [
 			{ text: 'Inicio', link: '/' },
