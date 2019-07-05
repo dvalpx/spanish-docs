@@ -1,17 +1,21 @@
 module.exports = {
-	title: 'Documentación de Laravel en Español',
+	title: 'Documentación de Laravel',
   	head: [
-  		['link', {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Catamaran:300,700|Miriam+Libre'}]
+		['link', {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Catamaran:300,700|Miriam+Libre'}],
+		['link', { rel: 'icon', href: '/favicon.png' }]
   	],
   	description: 'Documentación de Laravel en Español',
   	themeConfig: {
     	nav: [
-        	{ text: 'Inicio', link: '/' },
+			{ text: 'Inicio', link: '/' },
+			{ text: 'Glosario', link: '/glossary'},			
+			{ text: 'Créditos', link: '/credits' },
+			{ text: 'Styde', link: 'https://styde.net/'},
        	],
 		search: true,
 		sidebar: [
 			{
-				title: 'Primeros Pasos',
+				title: 'Primeros pasos',
 				collapsable: true,
 				children: [
 					'/installation',
@@ -23,7 +27,7 @@ module.exports = {
 				]
 			},
 			{
-				title: 'Conceptos De Arquitectura',
+				title: 'Conceptos de arquitectura',
 				collapsable: true,
 				children: [
 					'/lifecycle',
@@ -93,7 +97,7 @@ module.exports = {
 				]
 			},
 			{
-				title: 'Bases De Datos',
+				title: 'Bases de datos',
 				collapsable: true,
 				children: [
 					'/database.md',
