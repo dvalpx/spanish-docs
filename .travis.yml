@@ -11,10 +11,10 @@ addons:
             - g++-4.8
 install:
     - npm install -g vuepress
-    - npm install vuepress-plugin-export
+    - npm install -g vuepress-plugin-export
 script:
-    - npm run docs:pdf
     - npm run docs:build
+    - npm run docs:pdf
 cache:
     directories:
         - "node_modules"
