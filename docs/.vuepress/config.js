@@ -5,7 +5,7 @@ module.exports = {
 		['link', { rel: 'icon', href: '/favicon.png' }]
   	],
 	description: 'Documentación de Laravel en Español',
-	plugins: ['vuepress-plugin-export'],
+	plugins: ['vuepress-plugin-export'], 
   	themeConfig: {
     	nav: [
 			{ text: 'Inicio', link: '/' },

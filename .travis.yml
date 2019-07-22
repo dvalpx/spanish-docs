@@ -10,8 +10,8 @@ addons:
         packages:
             - g++-4.8
 install:
-    - npm install -g vuepress
-    - npm install -g vuepress-plugin-export
+    - npm install -g vuepress@1.0.0-alpha.44
+    - npm install vuepress-plugin-export@0.2.0
 script:
     - npm run docs:build
     - npm run docs:pdf
